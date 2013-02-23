@@ -1,4 +1,4 @@
-Rails3BootstrapDeviseCancan::Application.routes.draw do
+SolarSunflower::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   authenticated :user do
