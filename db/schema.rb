@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223183533) do
+ActiveRecord::Schema.define(:version => 20130223192421) do
+
+  create_table "data_collections", :force => true do |t|
+    t.datetime "collected_date"
+    t.decimal  "soil_moisture_low"
+    t.decimal  "soil_moisture_medium"
+    t.decimal  "soil_moisture_high"
+    t.decimal  "temperature"
+    t.decimal  "sunlight"
+    t.decimal  "waterlevel"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -36,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20130223183533) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "address"
+    t.string   "zipcode"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
