@@ -1,4 +1,6 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   authenticated :user do
     root :to => 'home#index'
   end
