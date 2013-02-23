@@ -3,6 +3,10 @@ class DataCollectionController < ApplicationController
 	end
 
         def index
-            @data_collections = DataCollection.all(:order => "collected_date DESC")
+            if params[:site_id]
+                @data_collections = DataCollection.find_by_site_id(params[:site_id])
+            else
+                @data_collections = DataCollection.all(:order => "collected_date DESC")
+            end
         end
 end
