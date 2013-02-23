@@ -1,5 +1,7 @@
-Solar Sungflower
-================================
+Solar Sunflower: A #TechCamp and Code for Philly Project
+========================================================
+
+The Solar Sunflower is an educational tool used for wireless monitoring of green stormwater infrastructure. Environmental data is collected by analog sensors (soil moisture, temperature, light) embedded in the green stormwater infrastructure system (e.g., a rain garden). Data is sent to the Web and can be mined by students or citizens and analyzed via an online interface. The data provides important information about system performance, plant health and maintenance needs.
 
 To initialize:
 rake db:create
