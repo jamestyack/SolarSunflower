@@ -12,7 +12,7 @@ SolarSunflower::Application.routes.draw do
   #aliased to perhaps save amount of data needed to be hardcoded on client ardruino
   post "/dc", to: 'data_collection#submit'
 
-  get "/dc/index/:site_id", to: 'data_collection#index'
+  get "/dc/index/", to: 'data_collection#index'
 
   get "/sites", to: 'sites#index'
 
