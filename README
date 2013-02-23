@@ -1,25 +1,12 @@
-Rails3 + Twitter Bootstrap + Devise + CanCan
-============================================
+Solar Sungflower
+================================
 
-You can use this project as a starting point for a Rails web application. It requires Rails 3 and uses Devise for user management and authentication, CanCan for authorization of administrator access, and Twitter Bootstrap for CSS styling.
+To initialize:
+rake db:create
+rake db:migrate
+rake db:seed
 
-Devise
-http://github.com/plataformatec/devise
+login with user@example.com/changeme
 
-CanCan
-https://github.com/ryanb/cancan
-
-Twitter Bootstrap
-http://twitter.github.com/bootstrap/
-
-________________________
-
-For more information, please see the updated README file on GitHub:
-
-https://github.com/railsapps/rails3-bootstrap-devise-cancan
-
-________________________
-
-MIT License
-
-http://www.opensource.org/licenses/mit-license
+To post data to the database:
+curl -v -H "Content-Type: application/json" -X POST -d '{"data":{"site_id":1,"collected_date":"2013-02-23 21:29:30","soil_moisture_high":5,"soil_moisture_low":5,"soil_moisture_medium":5, "sunlight":5, "temperature":5, "waterlevel":5 }}' 'http://0.0.0.0:3000/dc/'
