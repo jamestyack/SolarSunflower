@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223192421) do
+ActiveRecord::Schema.define(:version => 20130223202636) do
 
   create_table "data_collections", :force => true do |t|
     t.datetime "collected_date"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130223192421) do
     t.decimal  "waterlevel"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "public"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
