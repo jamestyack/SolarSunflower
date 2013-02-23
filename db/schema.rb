@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130223202636) do
     t.decimal  "waterlevel"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
-    t.integer  "public"
+    t.integer  "site_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
