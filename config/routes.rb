@@ -6,4 +6,10 @@ SolarSunflower::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users
+
+  post "/data_collection", to: 'data_collection#submit'
+
+  #aliased to perhaps save amount of data needed to be hardcoded on client ardruino
+  post "/dc", to: 'data_collection#submit'
+
 end
