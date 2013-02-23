@@ -17,9 +17,14 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.add_role :admin
 
-site = Site.new :name => "Drexel URBN Center", :description => "This is a test site at the TechCamp hackathon", :address => "3501 Market Street", :zipcode => 19104
 
-site.save
+unless Site.find_by_name("Drexel URBN Center")
+    site = Site.new :name => "Drexel URBN Center", :description => "This is a test site at the TechCamp hackathon", :address => "3501 Market Street", :zipcode => 19104
+
+    site.save
+end
+
+site = Site.find_by_name("Drexel URBN Center")
 
 collection = site.data_collections.new :collected_date => Time.now, :soil_moisture_low => 5, :soil_moisture_medium => 5, :soil_moisture_high => 5, :temperature => 5, :sunlight => 5, :waterlevel => 5
 
