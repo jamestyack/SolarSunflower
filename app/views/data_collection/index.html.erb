@@ -1,4 +1,7 @@
-<h1>All Data Collections</h1>
-<%= div_for @data_collections do |data| %>
-    <%= render 'data_collection', :data => data %>
+<h1>Data form <%= @site.name %></h1>
+<%= div_for @collection_points do |collection_point| %>
+    <b> Colelction Point: </b><%= collection_point.name %>
+    <% collection_point.data_collections.all.each do |data_collection| %>
+        <%= render 'data_collection', :data => data_collection %>
+    <% end %>
 <% end %>

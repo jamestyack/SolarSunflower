@@ -8,5 +8,7 @@ class DataCollectionController < ApplicationController
 	end
 
         def index
+            @site = Site.find(params[:site_id])
+            @collection_points = @site.collection_points.all
         end
 end
