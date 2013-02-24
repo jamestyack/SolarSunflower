@@ -2,9 +2,9 @@ SolarSunflower::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'sites#index'
   end
-  root :to => "home#index"
+  root :to => "sites#index"
   devise_for :users
 
   post "/data_collection", to: 'data_collection#submit'
