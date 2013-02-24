@@ -14,4 +14,4 @@ To post data to the database:
 curl -v -H "Content-Type: application/json" -X POST -d '{"data":{"collection_point_id":1,"collected_date":"2013-02-23 21:29:30","soil_moisture_high":5,"soil_moisture_low":5,"soil_moisture_medium":5, "sunlight":5, "temperature":5, "waterlevel":5 }}' 'http://0.0.0.0:3000/dc/'
 
 Send POST data for moisture
-curl -v -H "Content-Type: application/json" -X POST -d '{"data":{"collection_point_id":2,"collected_date":"2013-02-24 19:09:30","soil_moisture_high":534"soil_moisture_low":123,"soil_moisture_medium":5 }}' 'http://solarsunflower.herokuapp.com/dc/'
+curl -v -H "Content-Type: application/json" -X POST -d '{"data":{"collection_point_id":2,"collected_date":"2013-02-25 19:09:30","soil_moisture_high":534"soil_moisture_low":123,"soil_moisture_medium":5 }}' 'http://solarsunflower.herokuapp.com/dc/
