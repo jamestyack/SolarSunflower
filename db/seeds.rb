@@ -24,16 +24,36 @@ unless Site.find_by_name("Drexel URBN Center")
     site.save
 end
 
-unless CollectionPoint.find_by_name("Omega")
+unless CollectionPoint.find_by_name("Sunlight")
     site = Site.find_by_name("Drexel URBN Center")
 
-    collection_point = site.collection_points.new :name => "Omega"
+    collection_point = site.collection_points.new :name => "Sunlight"
 
     collection_point.save
 end
 
-collection_point = CollectionPoint.find_by_name("Omega")
+unless CollectionPoint.find_by_name("Moisture")
+    site = Site.find_by_name("Drexel URBN Center")
+    
+    collection_point = site.collection_points.new :name => "Moisture"
 
-data_collection = collection_point.data_collections.new :collected_date => Time.now, :soil_moisture_low => 5, :soil_moisture_medium => 5, :soil_moisture_high => 5, :temperature => 5, :sunlight => 5, :waterlevel => 5
+    collection_point.save
+end
 
-data_collection.save
+3.times do
+
+    collection_point = CollectionPoint.find_by_name("Sunlight")
+
+    data_collection = collection_point.data_collections.new :collected_date => Time.now, :sunlight => 5, :temperature => 5
+
+    data_collection.save
+end
+
+3.times do 
+
+    collection_point = CollectionPoint.find_by_name("Moisture")
+
+    data_collection = collection_point.data_collections.new :collected_date => Time.now, :soil_moisture_low => 5, :soil_moisture_medium => 5, :soil_moisture_high => 5
+
+    data_collection.save
+end

@@ -1,5 +1,6 @@
 <h1>Data form <%= @site.name %></h1>
 <div> SOME KIND OF COOL GRAPH GOES HERE</div>
+
 <%= div_for @collection_points do |collection_point| %>
     <h2><b> Collection Point: </b><%= collection_point.name %></h2>
     <% collection_point.data_collections.all(:order => "collected_date DESC").each do |data_collection| %>

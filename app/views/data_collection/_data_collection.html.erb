@@ -1,9 +1,9 @@
 <ul>
     <li><b>Collected Date: </b><%= data.collected_date %></li>
-    <li><b>Soil Moisture Low: </b><%= data.soil_moisture_low %></li>
-    <li><b>Soil Moisture Medium: </b><%= data.soil_moisture_medium %></li>
-    <li><b>Soil Moisture High: </b><%= data.soil_moisture_high %></li>
-    <li><b>Temperature: </b><%= data.temperature %></li>
-    <li><b>Sunlight: </b><%= data.sunlight %></li>
-    <li><b>Waterlevel: </b><%= data.waterlevel %></li>
+    <% if data.soil_moisture_low %><li><b>Soil Moisture Low: </b><%= data.soil_moisture_low %></li><% end %>
+    <% if data.soil_moisture_medium %><li><b>Soil Moisture Medium: </b><%= data.soil_moisture_medium %></li><% end %>
+    <% if data.soil_moisture_high %><li><b>Soil Moisture High: </b><%= data.soil_moisture_high %></li><% end %>
+    <% if data.temperature %><li><b>Temperature: </b><%= data.temperature %></li><% end %>
+    <% if data.sunlight %><li><b>Sunlight: </b><%= data.sunlight %></li><% end %>
+    <% if data.waterlevel %><li><b>Waterlevel: </b><%= data.waterlevel %></li><% end %>
 </ul>
