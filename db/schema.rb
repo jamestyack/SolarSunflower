@@ -11,19 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223202636) do
+ActiveRecord::Schema.define(:version => 20130301000412) do
 
   create_table "data_collections", :force => true do |t|
-    t.datetime "collected_date"
-    t.decimal  "soil_moisture_low"
-    t.decimal  "soil_moisture_medium"
-    t.decimal  "soil_moisture_high"
-    t.decimal  "temperature"
-    t.decimal  "sunlight"
-    t.decimal  "waterlevel"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.integer  "site_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
