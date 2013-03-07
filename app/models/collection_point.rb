@@ -3,5 +3,6 @@ class CollectionPoint < ActiveRecord::Base
 
   belongs_to :site
   has_many :data_collections
+  has_many :soilmoistures
 
 end

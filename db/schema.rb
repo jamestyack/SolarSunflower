@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307180959) do
+ActiveRecord::Schema.define(:version => 20130307181706) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -64,8 +64,10 @@ ActiveRecord::Schema.define(:version => 20130307180959) do
     t.float    "deptha"
     t.float    "depthb"
     t.float    "depthc"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "collection_point_id"
+    t.datetime "collection_time"
   end
 
   create_table "users", :force => true do |t|
