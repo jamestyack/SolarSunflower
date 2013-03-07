@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301003201) do
+ActiveRecord::Schema.define(:version => 20130307180327) do
 
-  create_table "data_collections", :force => true do |t|
+  create_table "collection_points", :force => true do |t|
+    t.text     "name"
+    t.integer  "site_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "data_collections", :force => true do |t|
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "collection_point_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
