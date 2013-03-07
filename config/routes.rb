@@ -16,6 +16,4 @@ SolarSunflower::Application.routes.draw do
 
   get "/sites", to: 'sites#index'
 
-  post "/soilmoisture", to: 'soilmoisture#create', :as => 'create_soilmoisture'
-
 end
