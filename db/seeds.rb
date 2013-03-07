@@ -26,6 +26,7 @@ end
 
 site = Site.find_by_name("Drexel URBN Center")
 
-collection = site.data_collections.new :collected_date => Time.now, :soil_moisture_low => 5, :soil_moisture_medium => 5, :soil_moisture_high => 5, :temperature => 5, :sunlight => 5, :waterlevel => 5
-
-collection.save
+unless CollectionPoint.find_by_name("Orion")
+    collection_point = site.collection_points.new(:name => "Orion")
+    collection_point.save
+end
