@@ -12,5 +12,5 @@ login with user@example.com/changeme
 
 To post soil moisture data to the database:
 
-curl -v -H "Content-Type: application/json" -X POST -d '{"type":"soilmoisture", "data":{"collection_point_id":123,"collection_time":1362679956,"deptha":1,"depthb":1.2,"depthc":1.9}}' 'http://localhost:3000/dc/'
+curl -v -H "Content-Type: application/json" -X POST -d '{"type":"soilmoisture", "data":{"collection_point_id":123,"collection_time":"2013-03-08 08:58AM","deptha":1,"depthb":1.2,"depthc":1.9}}' 'http://localhost:3000/dc/'
 
