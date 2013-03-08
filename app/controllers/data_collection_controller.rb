@@ -1,6 +1,6 @@
 class DataCollectionController < ApplicationController
 
-    skip_before_filter :verify_authenticity_token, :if => :format_js?
+    skip_before_filter :verify_authenticity_token
 
     def submit
         if params[:type] == 'soilmoisture'
