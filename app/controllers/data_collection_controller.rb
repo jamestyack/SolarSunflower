@@ -1,15 +1,16 @@
 class DataCollectionController < ApplicationController
 
-    skip_before_filter :verify_authenticity_token, :if => :format_json?
+    skip_before_filter :verify_authenticity_token
 
     def submit
+        debugger
         if params[:type] == 'soilmoisture'
-            Soilmoisture.create!(params[:data])
+            data = Soilmoisture.new(params[:data])
+            data.save!
         end
 
-        respond_to do |format|
-            format.json { head :ok }
-        end
+        render :json => 'success'
+
     end
 
     private
