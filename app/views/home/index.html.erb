@@ -1,4 +1,4 @@
 <h3>Home</h3>
 <%= div_for @sites do |site| %>
-    <%= site.name %>
+    <%= link_to site.name, site %>
 <% end %>

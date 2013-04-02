@@ -16,6 +16,6 @@ SolarSunflower::Application.routes.draw do
 
   get "/sites", to: 'sites#index'
 
-  resource :sites
+  resources :sites
 
 end

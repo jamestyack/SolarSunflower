@@ -1,1 +1,15 @@
 <h1><%= @site.name %></h1>
+
+<%= div_for @site.collection_points do |point| %>
+    <h2>Collection Point: <%= point.name %></h2>
+
+    <%= div_for point.soilmoistures do |soil| %>
+        <i><%= soil.created_at %></i>
+        <ul>
+            <li>Depth A: <%= soil.deptha %></li>
+            <li>Depth B: <%= soil.depthb %></li>
+            <li>Deptch C: <%= soil.depthc %></li>
+        </ul>
+    <% end %>
+
+<% end %>
