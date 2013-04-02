@@ -3,7 +3,6 @@ class DataCollectionController < ApplicationController
     skip_before_filter :verify_authenticity_token
 
     def submit
-        debugger
         if params[:type] == 'soilmoisture'
             data = Soilmoisture.new(params[:data])
             data.save!
