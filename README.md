@@ -15,12 +15,14 @@ You might also want to POST some data points using the`curl` request below.
 
 login with user@example.com/changeme
 
-Useage
+Usage
 ------
 
-To POST soil moisture data to the database:
+To POST soil moisture data to the database, execute this `curl` request:
 
 curl -v -H "Content-Type: application/json" -X POST -d '{"type":"soilmoisture", "data":{"collection_point_id":1,"collection_time":"2013-03-08 08:58AM","deptha":1,"depthb":1.2,"depthc":1.9}}' 'http://localhost:3000/dc/'
+
+---
 
 
 Each soil moisture data bundle belongs to a `collection point`, which belongs to a `site`. You can navigate through this heirarchy from the the home page.
