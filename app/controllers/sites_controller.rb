@@ -2,13 +2,14 @@ class SitesController < ApplicationController
     def show
         @site = Site.find(params[:id])
         @collection_points = @site.collection_points
-        @soilmoistures = {}
+        @soilmoistures = []
 
-        @collection_points.each do |point|
-            @soilmoistures[point.name] = []
+        @collection_points.each_with_index do |point, key|
+            @soilmoistures << Hash.new(point.name)
+            @soilmoistures[key][point.name] = []
 
             point.soilmoistures.each do |soil|
-                @soilmoistures[point.name] << soil
+                @soilmoistures[key][point.name] << soil
             end
         end
 
