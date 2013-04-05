@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'GET',
-        url: "http://localhost:3000/sites/1.json",
+        url: "http://localhost:3000/sites/" + siteId + ".json",
         success: function(data) { setData(data); },
         contentType: 'application/json',
         dataType: 'json'
