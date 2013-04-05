@@ -39,3 +39,5 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 gem 'rails_admin'
 
 gem 'thin'
+
+gem "d3-rails"

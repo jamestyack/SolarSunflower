@@ -67,6 +67,8 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    d3-rails (0.0.5)
+      railties (>= 3.1)
     daemons (1.1.9)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
@@ -236,6 +238,7 @@ DEPENDENCIES
   capybara (>= 2.0.2)
   coffee-rails (~> 3.2.1)
   cucumber-rails
+  d3-rails
   database_cleaner
   debugger
   devise (>= 2.2.3)
