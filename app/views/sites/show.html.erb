@@ -8,9 +8,9 @@
     <%= div_for point.soilmoistures do |soil| %>
         <i><%= soil.created_at %></i>
         <ul>
-            <li>Depth A: <%= soil.deptha %></li>
-            <li>Depth B: <%= soil.depthb %></li>
-            <li>Deptch C: <%= soil.depthc %></li>
+            <li class='blue'>Depth A: <%= soil.deptha %></li>
+            <li class='green'>Depth B: <%= soil.depthb %></li>
+            <li class='red'>Deptch C: <%= soil.depthc %></li>
         </ul>
     <% end %>
 

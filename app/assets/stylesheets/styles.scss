@@ -2,6 +2,20 @@
 
 path {
     fill: none;
-    stroke: steelblue;
     stroke-width: 2;
+}
+
+.blue {
+    stroke: steelblue;
+    color: steelblue;
+}
+
+.green {
+    stroke: rgb(67, 201, 121);
+    color: rgb(67, 201, 121);
+}
+
+.red {
+    stroke: rgb(172, 58, 58);
+    color: rgb(172, 58, 58);
 }

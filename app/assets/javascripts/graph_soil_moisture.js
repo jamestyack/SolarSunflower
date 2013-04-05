@@ -22,7 +22,7 @@ $(document).ready(function() {
         parse_depth_data(graph_data, depthb_data, "depthb");
         parse_depth_data(graph_data, depthc_data, "depthc");
 
-        draw_soil_graph(deptha_data);
+        draw_soil_graph(deptha_data, depthb_data, depthc_data);
 
     }
 
@@ -38,12 +38,14 @@ $(document).ready(function() {
 
     // D3 Implementation
 
-    function draw_soil_graph(depth_data) {
-        var data = depth_data,
+    function draw_soil_graph(depth_data_a, depth_data_b, depth_data_c) {
+        var data = depth_data_a,
+            data_b = depth_data_b,
+            data_c = depth_data_c,
             w = 800,
             h = 200,
             margin = 20,
-            y = d3.scale.linear().domain([0, d3.max(data)]).range([0 + margin, h - margin]),
+            y = d3.scale.linear().domain([0, d3.max(data)+1]).range([0 + margin, h - margin]),
             x = d3.scale.linear().domain([0, data.length]).range([0 + margin, w - margin])
 
                 console.log(data);
@@ -56,11 +58,13 @@ $(document).ready(function() {
         var g = vis.append("svg:g")
             .attr("transform", "translate(0,200)");
 
-    var line = d3.svg.line()
-        .x(function(d,i) { return x(i); })
-        .y(function(d) { return -1 * y(d); })
+        var line = d3.svg.line()
+            .x(function(d,i) { return x(i); })
+            .y(function(d) { return -1 * y(d); })
 
-        g.append("svg:path").attr("d", line(data));
+        g.append("svg:path").attr("d", line(data)).attr("class", "blue");
+        g.append("svg:path").attr("d", line(data_b)).attr("class", "green");
+        g.append("svg:path").attr("d", line(data_c)).attr("class", "red");
 
         g.append("svg:line")
             .attr("x1", x(0))
