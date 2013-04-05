@@ -56,9 +56,9 @@ $(document).ready(function() {
         var g = vis.append("svg:g")
             .attr("transform", "translate(0,200)");
 
-        var line = d3.svg.line()
-            .x(function(d,i) { return x(i);  })
-            .y(function(d) { return -1 * y(d); })
+    var line = d3.svg.line()
+        .x(function(d,i) { return x(i); })
+        .y(function(d) { return -1 * y(d); })
 
         g.append("svg:path").attr("d", line(data));
 
