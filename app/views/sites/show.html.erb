@@ -3,8 +3,8 @@
 <%= div_for @site.collection_points do |point| %>
     <h2>Collection Point: <%= point.name %></h2>
 
-    <%= div_for point.soilmoistures do |soil| %>
-        <i><%= soil.created_at %></i>
+    <%= div_for point.soilmoistures.order("collection_time DESC") do |soil| %>
+        <i><%= soil.collection_time %></i>
         <ul>
             <li>Depth A: <%= soil.deptha %></li>
             <li>Depth B: <%= soil.depthb %></li>

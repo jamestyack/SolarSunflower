@@ -7,10 +7,10 @@ class SitesController < ApplicationController
         @collection_points.each_with_index do |point, key|
             @soilmoistures[key] = Hash.new
             @soilmoistures[key]['pointName'] = point.name
-            @soilmoistures[key]['soilMoisture'] = []
+            @soilmoistures[key]['soilMoistureData'] = []
 
             point.soilmoistures.each do |soil|
-                @soilmoistures[key]['soilMoisture'] << soil
+                @soilmoistures[key]['soilMoistureData'] << soil
             end
         end
 
