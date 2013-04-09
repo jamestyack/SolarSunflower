@@ -18,4 +18,10 @@ SolarSunflower::Application.routes.draw do
 
   resources :sites
 
+  namespace :api do
+      namespace :v1 do
+          resources :sites
+      end
+  end
+
 end
