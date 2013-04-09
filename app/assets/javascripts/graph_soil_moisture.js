@@ -14,8 +14,10 @@ $(document).ready(function() {
 
     function setData(data) {
 
+        console.log(data);
+
         for (i=0; i < data.length; i++) {
-            graph_data.push(data[i].soilMoisture);
+            graph_data.push(data[i].soilMoistureData);
         }
 
         parse_depth_data(graph_data, deptha_data, "deptha");
