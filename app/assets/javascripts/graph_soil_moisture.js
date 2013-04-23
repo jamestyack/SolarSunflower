@@ -1,16 +1,27 @@
 $(document).ready(function() {
-    var graph_data = [];
-    var deptha_data = [];
-    var depthb_data = [];
-    var depthc_data = [];
+    var graph_data = []
+            ,deptha_data = []
+            ,depthb_data = []
+            ,depthc_data = [];
 
-    $.ajax({
-        type: 'GET',
-        url: "http://localhost:3000/sites/" + siteId + ".json",
-        success: function(data) { setData(data); },
-        contentType: 'application/json',
-        dataType: 'json'
-    });
+    getNewData();
+    window.setInterval(getNewData, 20000);
+
+    function getNewData() {
+        graph_data = [];
+        deptha_data = [];
+        depthb_data = [];
+        depthc_data = [];
+
+        $('div.graph').html('Loading...');
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:3000/sites/" + siteId + ".json",
+            success: function(data) { setData(data); },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+    }
 
     function setData(data) {
 
@@ -41,6 +52,7 @@ $(document).ready(function() {
     // D3 Implementation
 
     function draw_soil_graph(depth_data_a, depth_data_b, depth_data_c) {
+        $('div.graph').html('');
         var data = depth_data_a,
             data_b = depth_data_b,
             data_c = depth_data_c,
@@ -51,11 +63,11 @@ $(document).ready(function() {
             x = d3.scale.linear().domain([0, data.length]).range([0 + margin, w - margin])
 
                 console.log(data);
-
+        
         var vis = d3.select(".graph")
             .insert("svg:svg")
             .attr("width", "100%")
-            .attr("height", h)
+            .attr("height", h);
         
         var g = vis.append("svg:g")
             .attr("transform", "translate(0,200)");
