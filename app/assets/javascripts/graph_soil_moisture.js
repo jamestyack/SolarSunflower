@@ -5,7 +5,7 @@ $(document).ready(function() {
             ,depthc_data = [];
 
     getNewData();
-    window.setInterval(getNewData, 20000);
+    window.setInterval(getNewData, 10000);
 
     function getNewData() {
         graph_data = [];
@@ -59,7 +59,7 @@ $(document).ready(function() {
             w = 800,
             h = 200,
             margin = 20,
-            y = d3.scale.linear().domain([0, d3.max(data)+1]).range([0 + margin, h - margin]),
+            y = d3.scale.linear().domain([0, d3.max(data)+5]).range([0 + margin, h - margin]),
             x = d3.scale.linear().domain([0, data.length]).range([0 + margin, w - margin])
 
                 console.log(data);
