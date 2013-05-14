@@ -1,6 +1,8 @@
-<h1><%= @site.name %></h1>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<div class='graph'></div>
+<div class='graph'>
+    <%= line_chart @all_points.map { |points| points } %>
+</div>
 
 <%= div_for @site.collection_points do |point| %>
     <h2>Collection Point: <%= point.name %></h2>

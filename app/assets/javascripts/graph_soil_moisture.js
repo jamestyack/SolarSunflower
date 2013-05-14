@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
     var graph_data = []
             ,deptha_data = []
@@ -138,4 +139,4 @@ $(document).ready(function() {
 
 });
 
-
+*/
