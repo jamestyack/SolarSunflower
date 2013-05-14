@@ -41,3 +41,4 @@ gem 'rails_admin'
 gem 'thin'
 
 gem "d3-rails"
+gem "chartkick"
