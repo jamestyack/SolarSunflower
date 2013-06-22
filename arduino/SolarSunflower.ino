@@ -117,15 +117,48 @@ float readSensor(int readAddress, int numberOfSensorReads) {
   return sensorValue;
 }
 
-void clockCheck() {
+boolean clockCheck() {
   if (! RTC.isrunning()) {
     //Notifies the user via serial monitor that the real-time clock is not functional
     Serial.println("RTC is NOT running!");
     //Sets the RTC to the date & time this sketch was compiled
     RTC.adjust(DateTime(__DATE__, __TIME__));
+    return false;
+  }
+  else{
+    return true;
   }
 }
 
+String timestamp(){
+  DateTime now = RTC.now();
+    
+  Serial.print(now.month(), DEC);
+  Serial.print('/');
+  Serial.print(now.day(), DEC);
+  Serial.print('/');
+  Serial.print(now.year(), DEC);
+  Serial.print(' ');
+  Serial.print(now.hour(), DEC);
+  Serial.print(':');
+  
+  int mins = now.minute();
+  if (mins < 10)
+    Serial.print('0');
+    
+  Serial.print(mins);
+  Serial.print(':');
+  
+  int secs = now.second();
+  if (secs < 10)
+    Serial.print('0');
+    
+  Serial.print(secs);
+  Serial.println();
+  return "Hi!";
+
+  clockCheck();
+}
 void loop() {
   //checks to see that the real-time clock is functioning
   clockCheck();
