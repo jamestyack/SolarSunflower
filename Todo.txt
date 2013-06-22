@@ -41,13 +41,14 @@ Graph all four (3 VMCs and the average) on a chart for the kids to look at.
 Add a "water me" signal - an actual light(s) on the sunflower blink below a certain threshold, as well as a web page flag (such as an image).
 
 Matt - Add temperature sensor to hardware.
-Matt - Add temperature calculation code to Arduino code.
+COMPLETE - Add temperature calculation code to Arduino code.
 Chris - Add temperature calculation code to data structure.
 Add temperature graph to server.
 
 Matt - Add timestamp to the data sent from the Arduino as it is sent.
-Matt - Add clock/battery to Arduino hardware.
-Matt - Add timestamp code to Arduino software and data structure.
+COMPLETE - Add clock/battery to Arduino hardware.
+Matt - Add timestamp code to Arduino software
+IN PROGRESS - Add timestamp code to Arduino data structure.
 
 James/Pat - Add SD card data logger to Arduino.
 James/Pat - Add SD card data logger code to the Arduino.
