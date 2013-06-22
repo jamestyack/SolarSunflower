@@ -114,6 +114,7 @@ float readSensor(int readAddress, int numberOfSensorReads) {
     voltage = voltage + (5.00 / 1023.00) * readAddress;
   }
   float sensorValue = voltage / numberOfSensorReads;
+  sensorValue = (sensorValue - 1.6)/.0167;  //convert voltage to Volumetric Water Content for Vegetronix VG400 E
   return sensorValue;
 }
 
