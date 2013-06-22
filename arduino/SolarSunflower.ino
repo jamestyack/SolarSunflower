@@ -108,6 +108,15 @@ void httpRequest() {
   }
 }
 
+float readSensor(int readAddress, int numberOfSensorReads) {
+  float voltage = 0.0;
+  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
+    voltage = voltage + (5.00 / 1023.00) * readAddress;
+  }
+  float sensorValue = voltage / numberOfSensorReads;
+  return sensorValue;
+}
+
 void loop() {
   //checks to see that the real-time clock is functioning
   if (! RTC.isrunning()) {
