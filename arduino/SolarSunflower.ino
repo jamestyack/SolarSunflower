@@ -131,33 +131,51 @@ boolean clockCheck() {
 }
 
 String timestamp(){
-  DateTime now = RTC.now();
-    
-  Serial.print(now.month(), DEC);
-  Serial.print('/');
-  Serial.print(now.day(), DEC);
-  Serial.print('/');
-  Serial.print(now.year(), DEC);
-  Serial.print(' ');
-  Serial.print(now.hour(), DEC);
-  Serial.print(':');
-  
-  int mins = now.minute();
-  if (mins < 10)
-    Serial.print('0');
-    
-  Serial.print(mins);
-  Serial.print(':');
-  
-  int secs = now.second();
-  if (secs < 10)
-    Serial.print('0');
-    
-  Serial.print(secs);
-  Serial.println();
-  return "Hi!";
+  String timestamp = "";
 
-  clockCheck();
+  if (clockCheck()){
+    DateTime now = RTC.now();
+      
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print('/');
+    Serial.print(now.year(), DEC);
+    Serial.print(' ');
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    
+    int mins = now.minute();
+    if (mins < 10)
+      Serial.print('0');
+      
+    Serial.print(mins);
+    Serial.print(':');
+    
+    int secs = now.second();
+    if (secs < 10)
+      Serial.print('0');
+      
+    Serial.print(secs);
+    Serial.println();
+    char Buffer[20] = "";
+    //char* date_value = "02/23/2013";
+    //String sensorOne = dtostrf(sensorOneValue, 2, 1, Buffer);
+    String month = dtostrf(now.month(), 2, 1, Buffer);
+    String day = dtostrf(now.day(), 2, 1, Buffer);
+    String year = dtostrf(now.year(), 2, 1, Buffer);
+    
+    String hour = dtostrf(now.hour(), 2, 1, Buffer);
+    String minute = dtostrf(now.minute(), 2, 1, Buffer);
+    String second = dtostrf(now.second(), 2, 1, Buffer);
+
+    timestamp = month + '/' + day + '/' + year + ' ' + hour + ':' + minute  + ':' + second;
+  }
+  else {
+    Serial.print('Clock uninitialized!');
+    timestamp = "none";
+  }
+  return timestamp;
 }
 void loop() {
   //checks to see that the real-time clock is functioning
