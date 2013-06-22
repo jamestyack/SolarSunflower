@@ -34,7 +34,7 @@ How do we best visualize this on the page?
 		D3
 		ChartKick
 
-Chris - Add Volumetric Water Content (%) to Arduino code and data structure.
+COMPLETE - Add Volumetric Water Content (%) to Arduino code and data structure.
 Chris - Add an average of all three soil moisture VWCs to Arduino code and data structure. (NOT Sent - generated on the Arduino AND the server)
 Graph all four (3 VMCs and the average) on a chart for the kids to look at.
 
