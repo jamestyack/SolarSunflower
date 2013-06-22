@@ -179,6 +179,20 @@ String timestamp(){
   }
   return timestamp;
 }
+
+float readTemperature (int readAddress, int numberOfSensorReads){
+  float temp = 1023/readAddress - 1;
+  temp = 10000 / temp; //resistor value 10k div by value
+  temp = temp / 10000;
+  temp = log(temp);                  // ln(R/Ro)
+  temp /= 3950;                   // 1/B * ln(R/Ro)
+  temp += 1.0 / (25 + 273.15); // + (1/To)
+  temp = 1.0 / temp;                 // Invert
+  temp -= 273.15;                         // convert to C
+  temp = (temp*9.0)/5.0 + 32.0;     // convert to F
+  return temp;
+}
+
 void loop() {
   //checks to see that the real-time clock is functioning
   clockCheck();
