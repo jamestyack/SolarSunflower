@@ -136,7 +136,8 @@ String timestamp(){
 
   if (clockCheck()){
     DateTime now = RTC.now();
-      
+     
+    //all these Serial.prints are to test generation of timestamp - can be deleted once it's working 
     Serial.print(now.month(), DEC);
     Serial.print('/');
     Serial.print(now.day(), DEC);
