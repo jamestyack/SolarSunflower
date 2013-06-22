@@ -10,7 +10,10 @@
 #include <SPI.h>
 #include <aJSON.h>
 #include <avr/pgmspace.h>
+#include <Wire.h>
+#include <RTClib.h>
 
+RTC_DS1307 RTC;
 char ssid[] = "";     //  your network SSID (name) 
 char pass[] = "";    // your network password
 
@@ -30,6 +33,8 @@ const unsigned long postingInterval = 5000;  // delay between updates, in millis
 void setup() {
   // start serial port:
   Serial.begin(9600);
+  Wire.begin();
+  RTC.begin();
 
   // attempt to connect to Wifi network:
   while ( status != WL_CONNECTED) { 
@@ -104,6 +109,15 @@ void httpRequest() {
 }
 
 void loop() {
+  //checks to see that the real-time clock is functioning
+  if (! RTC.isrunning()) {
+    //Notifies the user via serial monitor that the real-time clock is not functional
+    Serial.println("RTC is NOT running!");
+    //Sets the RTC to the date & time this sketch was compiled
+    RTC.adjust(DateTime(__DATE__, __TIME__));
+  }
+
+  //resets all data regarding client connection
   client.flush();
   // if there's incoming data from the net connection.
   // send it out the serial port.  This is for debugging
@@ -124,40 +138,41 @@ void loop() {
   // store the state of the connection for next time through
   // the loop:
   lastConnected = client.connected();
+  int numberOfSensorReads = 5;
 
   int readValue = analogRead(A1);
-  float val1 = (5.00 / 1023.00) * readValue; //convert raw sensor data into a voltage
-  val1 = val1 + (5.00 / 1023.00) * analogRead(A1);
-  val1 = val1 + (5.00 / 1023.00) * analogRead(A1);
-  val1 = val1 + (5.00 / 1023.00) * analogRead(A1);
-  val1 = val1 + (5.00 / 1023.00) * analogRead(A1);
-  val1 = val1 / 5;
-  int readValue2 = analogRead(A2);
-  float val2 = (5.00 / 1023.00) * readValue2; //convert raw sensor data into a voltage
-  val2 = val2 + (5.00 / 1023.00) * analogRead(A2);
-  val2 = val2 + (5.00 / 1023.00) * analogRead(A2);
-  val2 = val2 + (5.00 / 1023.00) * analogRead(A2);
-  val2 = val2 + (5.00 / 1023.00) * analogRead(A2);
-  val2 = val2 / 5;
-  int readValue3 = analogRead(A3);
-  float val3 = (5.00 / 1023.00) * readValue3; //convert raw sensor data into a voltage
-  val3 = val3 + (5.00 / 1023.00) * analogRead(A3);
-  val3 = val3 + (5.00 / 1023.00) * analogRead(A3);
-  val3 = val3 + (5.00 / 1023.00) * analogRead(A3);
-  val3 = val3 + (5.00 / 1023.00) * analogRead(A3);
-  val3 = val3 / 5;
+  float voltage = 0.0;
+  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
+    voltage = voltage + (5.00 / 1023.00) * readValue;
+  }
+  float sensorOneValue = voltage / numberOfSensorReads;
+
+  readValue = analogRead(A2);
+  voltage = 0.0;
+  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
+    voltage = voltage + (5.00 / 1023.00) * readValue;
+  }
+  float sensorTwoValue = voltage / numberOfSensorReads;
+
+  readValue = analogRead(A3);
+  voltage = 0.0;
+  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
+    voltage = voltage + (5.00 / 1023.00) * readValue;
+  }
+  float sensorThreeValue = voltage / numberOfSensorReads;  
+
   int sensor_id = 1;
   char* date_value = "02/23/2013";
   char* time_value = "16:04:00";
   char Buffer[20] = "";
-  String var4 = dtostrf(val1, 2, 1, Buffer);
-  String var5 = dtostrf(val2, 2, 1, Buffer);
-  String var6 = dtostrf(val3, 2, 1, Buffer);
+  String sensorOne = dtostrf(sensorOneValue, 2, 1, Buffer);
+  String sensorTwo = dtostrf(sensorTwoValue, 2, 1, Buffer);
+  String sensorThree = dtostrf(sensorThreeValue, 2, 1, Buffer);
   
 // if you're not connected, and ten seconds have passed since
   // your last connection, then connect again and send data:
   if(!client.connected() && (millis() - lastConnectionTime > postingInterval)) {
-    httpPOSTRequest(var4, var5, var6);
+    httpPOSTRequest(sensorOne, sensorTwo, sensorThree);
     //httpRequest();
   }
 }
