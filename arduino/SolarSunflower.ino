@@ -117,17 +117,22 @@ float readSensor(int readAddress, int numberOfSensorReads) {
   return sensorValue;
 }
 
-void loop() {
-  //checks to see that the real-time clock is functioning
+void clockCheck() {
   if (! RTC.isrunning()) {
     //Notifies the user via serial monitor that the real-time clock is not functional
     Serial.println("RTC is NOT running!");
     //Sets the RTC to the date & time this sketch was compiled
     RTC.adjust(DateTime(__DATE__, __TIME__));
   }
+}
+
+void loop() {
+  //checks to see that the real-time clock is functioning
+  clockCheck();
 
   //resets all data regarding client connection
   client.flush();
+
   // if there's incoming data from the net connection.
   // send it out the serial port.  This is for debugging
   // purposes only:
@@ -147,28 +152,18 @@ void loop() {
   // store the state of the connection for next time through
   // the loop:
   lastConnected = client.connected();
+  
   int numberOfSensorReads = 5;
+  int readValue = 0;
 
-  int readValue = analogRead(A1);
-  float voltage = 0.0;
-  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
-    voltage = voltage + (5.00 / 1023.00) * readValue;
-  }
-  float sensorOneValue = voltage / numberOfSensorReads;
+  readValue = analogRead(A1);
+  float sensorOneValue = readSensor(readValue, numberOfSensorReads);
 
   readValue = analogRead(A2);
-  voltage = 0.0;
-  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
-    voltage = voltage + (5.00 / 1023.00) * readValue;
-  }
-  float sensorTwoValue = voltage / numberOfSensorReads;
-
+  float sensorTwoValue = readSensor(readValue, numberOfSensorReads);
+  
   readValue = analogRead(A3);
-  voltage = 0.0;
-  for (int iterations = 1; iterations <= numberOfSensorReads; iterations++) { 
-    voltage = voltage + (5.00 / 1023.00) * readValue;
-  }
-  float sensorThreeValue = voltage / numberOfSensorReads;  
+  float sensorThreeValue = readSensor(readValue, numberOfSensorReads);
 
   int sensor_id = 1;
   char* date_value = "02/23/2013";
