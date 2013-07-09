@@ -31,7 +31,7 @@ How do we best visualize this on the page?
 	Are there three values to show, or are we averaging the three values so 1 value per sensor?
 	Decide on a final graphing solution:
 		XJS - Sencha
-		D3
+		D3 - JASON (working on understanding D3)
 		ChartKick
 
 COMPLETE - Add Volumetric Water Content (%) to Arduino code and data structure.
