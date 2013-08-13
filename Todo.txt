@@ -65,8 +65,12 @@ Add SD card data logger code to the Arduino.
 
 Kevin
 --------------
-Add USGS data (precipitation, sunlight, etc.) from this page: http://waterdata.usgs.gov/pa/nwis/uv?01474500 
 Add data collection and display to server code.
+
+Jason
+--------------
+Add USGS data (precipitation, sunlight, etc.) from this page: http://waterdata.usgs.gov/pa/nwis/uv?01474500 based on zip code entered into the server
+
 
 Complete
 --------------
