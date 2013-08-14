@@ -31,40 +31,52 @@ How do we best visualize this on the page?
 	Are there three values to show, or are we averaging the three values so 1 value per sensor?
 	Decide on a final graphing solution:
 		XJS - Sencha
-		D3
+		D3 - JASON (working on understanding D3)
 		ChartKick
-
-COMPLETE - Add Volumetric Water Content (%) to Arduino code and data structure.
-Chris - Add an average of all three soil moisture VWCs to Arduino code and data structure. (NOT Sent - generated on the Arduino AND the server)
+Not assigned
+--------------
 Graph all four (3 VMCs and the average) on a chart for the kids to look at.
-
+Add an average of all three soil moisture VWCs to server code
 Add a "water me" signal - an actual light(s) on the sunflower blink below a certain threshold, as well as a web page flag (such as an image).
-
-Matt - Add temperature sensor to hardware.
-COMPLETE - Add temperature calculation code to Arduino code.
-Chris - Add temperature calculation code to data structure.
 Add temperature graph to server.
+Develop a sleep mode for saving the battery when the Arduino is not taking readings. 
+	Narcoleptic library: http://code.google.com/p/narcoleptic/
 
-Matt - Add timestamp to the data sent from the Arduino as it is sent.
-COMPLETE - Add clock/battery to Arduino hardware.
-Matt - Add timestamp code to Arduino software
-IN PROGRESS - Add timestamp code to Arduino data structure.
+Chris
+--------------
+Add an average of all three soil moisture VWCs to Arduino code and data structure. (NOT Sent - generated on the Arduino AND the server)
+Add temperature calculation code to data structure, call temperature calcuation function in readings.
+Add timestamp code to Arduino data structure.
+Set up Rails app to run on phillywatersheds.org - It's a Drupal site on a Linux virtual private server w/GoDaddy (not my choice, believe me) and I have administrative access.
 
-James/Pat - Add SD card data logger to Arduino.
-James/Pat - Add SD card data logger code to the Arduino.
+Matt
+--------------
+Add temperature sensor to hardware.
+Add timestamp to the data sent from the Arduino as it is sent.
+Add timestamp code to Arduino software
+
+James
+--------------
+Add SD card data logger to Arduino.
+Add SD card data logger code to the Arduino.
 	Storing data when WiFi is down
 	Queueing and posting backloged data
 	Marking records as sent on SD card.
 
-Kevin - Add USGS data (precipitation, sunlight, etc.) from this page: http://waterdata.usgs.gov/pa/nwis/uv?01474500 
-Kevin - Add data collection and display to server code.
+Kevin
+--------------
+Add data collection and display to server code.
 
-COMPLETE - Set a database up to store the data.
-COMPLETE - Make collected data available on the page for download/analysis.
-COMPLETE - Open API for students to access.
+Jason
+--------------
+Add USGS data (precipitation, sunlight, etc.) from this page: http://waterdata.usgs.gov/pa/nwis/uv?01474500 based on zip code entered into the server
 
-Chris - Set up Rails app to run on phillywatersheds.org
-	It's a Drupal site on a Linux virtual private server w/GoDaddy (not my choice, believe me) and I have administrative access.
 
-Develop a sleep mode for saving the battery when the Arduino is not taking readings. 
-	Narcoleptic library: http://code.google.com/p/narcoleptic/
+Complete
+--------------
+Add Volumetric Water Content (%) to Arduino code and data structure.
+Add temperature calculation code to Arduino code.
+Add clock/battery to Arduino hardware.
+Set a database up to store the data.
+Make collected data available on the page for download/analysis.
+Open API for students to access.
